@@ -1,8 +1,11 @@
+import 'package:http/http.dart' as http;
+import 'package:http/retry.dart';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:clase2/providers/provider_product.dart';
 import 'package:flutter/services.dart' as rootBundle;
+
 class ReadJson extends StatelessWidget{
 
   const ReadJson({Key? Key }): super(key: Key);
@@ -63,11 +66,16 @@ class ReadJson extends StatelessWidget{
         )
     );
   }
+  //Map<String, dynamic> json = await loadJSON('http://example.com/file.json');
 
-  Future<List<ProductDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('data/productos.json');
-    final list = json.decode(jsondata) as List<dynamic>;
-
-    return list.map((e) => ProductDataModel.fromJson(e)).toList();
+  Future<void> ReadJsonData() async {
+    final client = RetryClient(http.Client());
+    try {
+      print(await client.read(Uri.http('', '')));
+    } finally {
+      client.close();
+    }
   }
+
+
 }
