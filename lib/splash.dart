@@ -29,7 +29,7 @@ class _SplashState extends State<Splash>{
   @override
   Widget build(BuildContext context){
     final button1 =  ElevatedButton(
-      child: Text("dert"),
+      child: Text("Tutorial"),
       style: ElevatedButton.styleFrom(primary: Colors.deepOrange,onPrimary: Colors.black),
       onPressed: (){
         print("/dert");
@@ -53,7 +53,7 @@ class _SplashState extends State<Splash>{
               Image(image: AssetImage('utpl.png')),
               Container(
                 child: Text(
-                    'Asistencia UTPL'
+                    'Asistencia UTPL',
                 ),
               ),
               button1,

@@ -1,4 +1,5 @@
   import 'package:clase2/dert.dart';
+import 'package:clase2/jsonread.dart';
 import 'package:clase2/screens/readjson.dart';
 import 'package:clase2/skip.dart';
   import 'package:clase2/splash.dart';
@@ -23,11 +24,12 @@ import 'package:clase2/skip.dart';
         ),
         routes: <String, WidgetBuilder>{
         //  "/productosmongodb" : (BuildContext context) => ProductosMongo(),
-          "/productosjson" : (BuildContext context) => ReadJson(),
+         // "/productosjson" : (BuildContext context) => ReadJson(),
           "/Splash":(BuildContext context)=>Splash(),
           '/dert' : (BuildContext context) => dert(),
           '/skip' : (BuildContext context) => skip(),
-          "/inicio" : (BuildContext context) => MyHomePage(title: 'Flutter',)
+          "/inicio" : (BuildContext context) => MyHomePage(title: 'Flutter'),
+          "/jsonread": (BuildContext context) => Lectura()
 
         },
 
@@ -57,7 +59,7 @@ import 'package:clase2/skip.dart';
             shadowColor: Colors.black
         ),
         onPressed: (){
-          Navigator.pushNamed(context, "/productosjson");
+          Navigator.pushNamed(context, "/jsonread");
           print("Ir al home");
         },
         onLongPress: (){
